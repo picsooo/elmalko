@@ -55,4 +55,23 @@ document.addEventListener('DOMContentLoaded', function () {
       form.reset();
     });
   }
+
+  /* Bascule version sombre / claire */
+  var sw = document.getElementById('themeSwitch');
+  if (sw) {
+    var p = window.location.pathname;
+    var isLight = /^\/light(\/|$)/.test(p);
+    var txt = sw.querySelector('.switch__txt');
+    if (isLight) {
+      var back = p.replace(/^\/light/, '');
+      if (!back || back === '/') back = '/';
+      sw.setAttribute('href', back);
+      if (txt) txt.textContent = 'Version sombre';
+      sw.classList.add('switch--toLight');
+    } else {
+      sw.setAttribute('href', '/light' + (p === '/' || p === '' ? '/' : p));
+      if (txt) txt.textContent = 'Version claire';
+    }
+  }
+
 });

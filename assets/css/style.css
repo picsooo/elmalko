@@ -307,3 +307,20 @@ section{position:relative}
   .form .row{grid-template-columns:1fr}
   .footer__grid{grid-template-columns:1fr}
 }
+
+/* --- Bascule version sombre / claire --- */
+.switch{
+  display:inline-flex;align-items:center;gap:9px;
+  padding:9px 16px;border:1px solid var(--ligne);border-radius:40px;
+  font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--gris);transition:var(--t);white-space:nowrap;
+}
+.switch:hover{border-color:var(--or);color:var(--or-clair)}
+.switch__dot{
+  width:11px;height:11px;border-radius:50%;flex:none;
+  background:linear-gradient(90deg,#F4F1EA 50%,#111 50%);
+  border:1px solid var(--or);transition:var(--t);
+}
+.switch:hover .switch__dot{transform:rotate(180deg)}
+@media(max-width:1100px){.switch__txt{display:none}.switch{padding:9px 11px}}
+@media(max-width:820px){.switch{order:-1}}
